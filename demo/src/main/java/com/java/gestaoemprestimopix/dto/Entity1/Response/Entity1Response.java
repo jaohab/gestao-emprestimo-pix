@@ -1,3 +1,5 @@
+package com.java.gestaoemprestimopix.dto.Entity1.Response;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

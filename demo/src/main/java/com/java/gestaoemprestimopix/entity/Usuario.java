@@ -1,3 +1,5 @@
+package com.java.gestaoemprestimopix.entity;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.NotBlank;
@@ -5,21 +7,23 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
+import java.util.UUID;
 
 @Entity
-@Table(name = "entity_1")
+@Table(name = "usuarios")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Entity1 {
+public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
-    @NotBlank(message = "O nome não pode ser vazio.")
-    @Size(max = 50, message = "O nome pode ter no máximo 50 caracteres.")
-    private String nome;
+    @NotBlank(message = "O cpf do cliente é obrigatório")
+    @Size(min = 11, max = 11, message = "O CPF deve conter 11 caracteres")
+    @Column(unique = true, nullable = false, length = 11)
+    private String cpf;
 
     @NotBlank(message = "A descrição não pode ser vazia.")
     @Size(max = 150, message = "A descrição pode ter no máximo 150 caracteres.")
