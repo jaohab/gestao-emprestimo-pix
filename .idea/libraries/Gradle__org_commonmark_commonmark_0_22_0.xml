@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: org.commonmark:commonmark:0.22.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.commonmark" artifactId="commonmark" version="0.22.0" baseVersion="0.22.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.commonmark/commonmark/0.22.0/8aad0beb29c6a0978950f1e14e15c1b7df1ae937/commonmark-0.22.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
