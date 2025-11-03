@@ -1,3 +1,8 @@
+import com.java.gestaoemprestimopix.exception.ClientStatusNotFound;
+import com.java.gestaoemprestimopix.exception.ClienteNotFound;
+import com.java.gestaoemprestimopix.exception.ErrorResponse;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -52,5 +57,29 @@ public class GlobalExceptionHandler {
                 request.getDescription(false).replace("uri=", "")
         );
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
+    }
+
+    @ExceptionHandler(ClienteNotFound.class)
+    public ResponseEntity<ErrorResponse> clienteNotFound(ClienteNotFound exception, HttpServletRequest request){
+
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.NOT_FOUND.value(),
+                "UNEXPECTED_ERROR",
+                exception.getMessage(),
+                request.getRequestURI());
+
+        return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ClientStatusNotFound.class)
+    public ResponseEntity<ErrorResponse> clientStatusNotFound(ClientStatusNotFound exception, HttpServletRequest request){
+
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.NOT_FOUND.value(),
+                "UNEXPECTED_ERROR",
+                exception.getMessage(),
+                request.getRequestURI());
+
+        return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
     }
 }

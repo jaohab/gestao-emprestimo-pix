@@ -1,3 +1,5 @@
+package com.java.gestaoemprestimopix.exception;
+
 import java.time.LocalDateTime;
 
 /**
