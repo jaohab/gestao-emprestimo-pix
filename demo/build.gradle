@@ -29,6 +29,9 @@ ext {
 }
 
 dependencies {
+    // ----------------------------------------------------
+    // IMPLEMENTAÇÕES EXISTENTES
+    // ----------------------------------------------------
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-graphql'
@@ -39,8 +42,31 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'org.springframework.ai:spring-ai-markdown-document-reader'
     implementation 'org.springframework.ai:spring-ai-pdf-document-reader'
+
+    // ----------------------------------------------------
+    // MAPSTRUCT E LOMBOK
+    // ----------------------------------------------------
+
+    // 1. MapStruct (Interface)
+    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+
+    // 2. Lombok (Junto com compileOnly)
     compileOnly 'org.projectlombok:lombok'
+
+    // 3. PROCESSADORES DE ANOTAÇÃO
+
+    // Processador do MapStruct (O gerador de código)
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+    // Processador do Lombok (Obrigatório)
     annotationProcessor 'org.projectlombok:lombok'
+
+    // Ligação entre Lombok e MapStruct (Para evitar conflitos)
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+    // ----------------------------------------------------
+    // TESTES
+    // ----------------------------------------------------
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.graphql:spring-graphql-test'
     testImplementation 'org.springframework.security:spring-security-test'
