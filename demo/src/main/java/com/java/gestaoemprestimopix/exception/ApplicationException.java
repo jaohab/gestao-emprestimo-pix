@@ -1,3 +1,5 @@
+package com.java.gestaoemprestimopix.exception;
+
 /**
  * Exceção genérica para toda a aplicação.
  * Pode representar desde erros de validação até falhas de regra de negócio.
