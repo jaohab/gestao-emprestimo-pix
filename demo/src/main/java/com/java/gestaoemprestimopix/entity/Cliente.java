@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -39,7 +40,7 @@ public class Cliente {
     private LocalDate dataAtualizacao;
 
     @OneToMany(mappedBy = "cliente")
-    private list<Emprestimo> emprestimos;
+    private List<Emprestimo> emprestimos;
 
     @OneToMany(mappedBy = "cliente")
     private List<Simulacao> simulacoes;
